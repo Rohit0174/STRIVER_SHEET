@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+
+public class Solution {
+	public static ArrayList<ArrayList<Long>> printPascal(int n) {
+                 // Write your code here.
+        ArrayList<ArrayList<Long>> result=new ArrayList<ArrayList<Long>>();
+        Solve(n,result);
+        return result;
+ 
+        
+	}
+    private static void Solve(int n,ArrayList<ArrayList<Long>> result){
+        if(n==1){
+            ArrayList<Long> list=new ArrayList<>();
+            long a=1;
+            list.add(a);
+            result.add(list);
+            return;
+        }
+        Solve(n-1,result);
+         ArrayList<Long> list=result.get(result.size()-1);
+         ArrayList<Long> temp=new  ArrayList<>();
+        long a=1;
+        temp.add(a);
+        for(int i=1;i<list.size();i++){
+            temp.add(list.get(i)+list.get(i-1));
+        }
+        temp.add(a);
+        result.add(temp);
+    }
+}
