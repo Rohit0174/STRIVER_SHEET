@@ -1,0 +1,20 @@
+import java.util.* ;
+import java.io.*; 
+
+public class Solution {
+	
+	public static long maxSubarraySum(int[] arr, int n) {
+		// write your code here
+        long ans=0;
+        long max=0;
+        for(int i=0;i<arr.length;i++){
+            ans+=arr[i];
+            if(ans>max)
+                max=Math.max(ans,max);
+            if(ans<0)
+                ans=0;
+        }
+        return max;
+	}
+
+}
