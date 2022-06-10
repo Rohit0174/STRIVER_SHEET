@@ -1,0 +1,28 @@
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
+
+public class Solution{
+    public static int maximumProfit(ArrayList<Integer> arr){
+        // Write your code here.
+        int buy = arr.get(0);
+        int sell = -1;
+        int max = 0;
+        
+        for(int i=1;i<arr.size();i++){
+            if(arr.get(i)<buy)buy = arr.get(i);
+            
+            else
+            {
+                sell = arr.get(i);
+                if((sell-buy)>max)
+                    max=sell-buy;
+
+            }
+
+        }
+        if(sell==-1)return 0;
+        return max;
+        
+    }
+}
