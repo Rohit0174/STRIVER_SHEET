@@ -1,0 +1,28 @@
+import java.util.ArrayList;
+
+public class Solution {
+
+    public static int[] missingAndRepeating(ArrayList<Integer> arr, int n) {
+        // Write your code here
+        int ans[]=new int[2];
+        for(int i=0;i<arr.size();i++){
+            int element = Math.abs(arr.get(i));
+            if(arr.get(element-1)<0)
+                {
+                ans[1]=element;
+                
+                }
+            else
+                {
+                arr.set(element-1,arr.get(element-1)*(-1));
+            }
+        }
+        for(int i=0;i<arr.size();i++){
+            if(arr.get(i)>0){
+                ans[0] = i+1;
+                break;
+            }
+        }
+        return ans;
+    }
+}
